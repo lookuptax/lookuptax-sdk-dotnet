@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageId>LookupTax</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>LookupTax</Authors>
+    <Description>Validate tax IDs (VAT, EIN, GSTIN, ABN…) against official government registries.</Description>
+    <PackageTags>tax;vat;vat-validation;ein;gstin;abn;tax-id;lookuptax</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/lookuptax/lookuptax-dotnet</RepositoryUrl>
+    <!-- The FILE NAME as it sits inside the .nupkg, not a path on disk. The
+         file itself is put there by the None item below; setting this property
+         without that item makes `dotnet pack` fail with NU5039. -->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The README lives at the repository root, two levels above this
+         project. PackagePath="\" places it at the root of the package, which
+         is where PackageReadmeFile looks for it.
+         Pack only: Visible=false keeps it out of the IDE's project tree. -->
+    <None Include="../../README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+</Project>
